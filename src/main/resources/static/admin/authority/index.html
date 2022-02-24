@@ -1,0 +1,51 @@
+
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">Tranh Chủ</li>
+              <li class="breadcrumb-item">Phân Quyền</li>
+            </ol>
+          </div>
+
+          <!-- Row -->
+          <div class="row">
+			<div class="table-responsive p-3">
+				<table class="table align-items-center table-flush table-hover" id="dataTableHover">
+				  <thead class="thead-light">
+					<tr>
+						<th scope="col"></th>
+						<th ng-repeat = "role in roles" >{{role.name}}</th>
+					</tr>
+				  </thead>
+				 
+				  <tbody>
+					<tr ng-repeat = "acc in pager.admins">
+						<th scope="row">{{acc.fullname}}</th>
+						<td ng-repeat = "role in roles"> 
+							<input ng-checked = "authority_of(acc,role)" ng-click = "authority_changed(acc,role)" type="checkbox" class="form-check-input" >
+					   </td>
+					</tr>
+				  </tbody>
+				</table>
+			  </div>
+
+			<div class="card-footer text-muted">
+					<button type="button" class="btn btn-primary"  ng-click="pager.first()">
+					  <i class="fas fa-fast-backward"></i>
+					</button>
+					<button type="button" class="btn btn-secondary"  ng-disabled="pager.page==0" ng-click="pager.prev()">
+					  <i class="fas fa-backward"></i>
+					</button>
+					<button class="btn btn-danger">{{pager.page + 1}} of {{pager.count()}}</button>
+					<button type="button" class="btn btn-success"  ng-disabled="pager.page >= pager.count() -1"  ng-click="pager.next()">
+					  <i class="fas fa-forward"></i>
+					</button>
+					<button type="button" class="btn btn-danger"  ng-click="pager.last()">
+					  <i class="fas fa-fast-forward"></i>  
+					</button>
+			</div>
+         
+		 </div>
+      
+
+      
+  

@@ -1,0 +1,36 @@
+app = angular.module("admin-app",["ngRoute"]);
+app.config(function($routeProvider){
+    $routeProvider
+    .when("/product",{
+        templateUrl:"/admin/product/index.html",
+        controller:"product-ctrl"
+    })
+    .when("/category",{
+        templateUrl:"/admin/category/index.html",
+        controller:"category-ctrl"
+    })
+    .when("/order",{
+        templateUrl:"/admin/order/index.html",
+        controller:"order-ctrl"
+    })
+    .when("/customer",{
+        templateUrl:"/admin/accounts/index.html",
+        controller:"accounts-ctrl"
+    })
+    .when("/authority",{
+        templateUrl:"/admin/authority/index.html",
+        controller:"authority-ctrl"
+    })
+    .when("/chart",{
+        templateUrl:"/admin/chart/index.html",
+        controller:"chart-ctrl"
+    })
+    .when("/order-detail/:id",{
+        templateUrl:"/admin/order-detail/index.html",
+        controller:"order-detail-ctrl"
+    })
+    .otherwise({
+         templateUrl:"/admin/home/index.html",
+         controller:"home-ctrl"
+    })
+})
